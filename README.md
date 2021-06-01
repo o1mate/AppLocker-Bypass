@@ -49,7 +49,7 @@ Then, you use DotNetToJscript to construct the VBS/JSript file.
 
 `DotNetToJScript.exe PshScriptExecLibrary.dll -v auto -c PshScriptExecLibrary.RunScriptClass -l jscript -o scriptExec.js`
 
-(Pick JScript instead of VBA, VBA is always flagged for some reason)
+(Pick JScript instead of VBA/VBS, they are always flagged for some reason)
 
 Parameters :
 
