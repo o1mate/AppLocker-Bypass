@@ -1,5 +1,5 @@
 # AppLocker-Bypass
-Bypassing AppLocker (executing Powershell scripts) with C#
+Bypassing AppLocker (executing Powershell scripts/commands) with C#
 
 ### NEW METHOD
 
