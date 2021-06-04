@@ -53,15 +53,15 @@ Then, you use DotNetToJscript to construct the VBS/JSript file.
 
 Parameters :
 
-\-v auto is to specify to the program that the assembly targets higher versions (powershell libraries are not available for assemblies in the default version (v2))
+`-v` auto is to specify to the program that the assembly targets higher versions (powershell libraries are not available for assemblies in the default version (v2))
 
-\-c is used to specify the class (in this case PshScriptExecLibrary.RunScriptClass).
+`-c` is used to specify the class (in this case PshScriptExecLibrary.RunScriptClass).
 
 By default DotNetToJScript uses its TestClass so that's why you have to specify which class to use  
 
-\-l is used to specify the type of script we want to generate, here JScript  
+`-l` is used to specify the type of script we want to generate, here JScript  
 
-\-o is the path/name to/of the output file
+`-o` is the path/name to/of the output file
 
 Then we create our HTA containing the generated JS code:
 
