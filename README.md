@@ -24,7 +24,9 @@ using System.Management.Automation.Runspaces;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-    
+
+// If you can't compile, you probably need to install Microsoft.PowerShell.5.ReferenceAssemblies in Visual Studio
+
 namespace PshScriptExecLibrary {
   [ComVisible(true)]
        public class RunScriptClass {
