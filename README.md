@@ -1,7 +1,7 @@
 # AppLocker-Bypass
 Bypassing AppLocker (executing Powershell scripts/commands) with C#
 
-### NEW METHOD
+### How ?
 
 There is a way to execute C# code in VBScript / JScript, which we can implement in an HTA, thanks to [DotNetToJscript](https://github.com/tyranid/DotNetToJScript).
 
